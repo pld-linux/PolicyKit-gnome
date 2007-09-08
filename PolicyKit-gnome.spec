@@ -1,14 +1,14 @@
 Summary:	PolicyKit - GNOME utilities
 Summary(pl.UTF-8):	PolicyKit - narzędzia dla GNOME
 Name:		PolicyKit-gnome
-Version:	0.3
+Version:	0.5
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	4f7a7b23051a59e0c29248605e98d56a
+# Source0-md5:	1cadee11e89ebd5ff00adeb9e9c4d178
 URL:		http://people.freedesktop.org/~david/polkit-spec.html
-BuildRequires:	PolicyKit-devel >= 0.3
+BuildRequires:	PolicyKit-devel >= 0.5
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.71
@@ -50,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS TODO
 %attr(755,root,root) %{_bindir}/polkit-gnome-example
-%attr(755,root,root) %{_libexecdir}/polkit-gnome
+%attr(755,root,root) %{_libexecdir}/polkit-gnome-manager
 %attr(755,root,root) %{_libexecdir}/polkit-gnome-example-helper
 %{_datadir}/PolicyKit/policy/polkit-gnome-example.policy
 %{_datadir}/dbus-1/services/org.gnome.PolicyKit.service
