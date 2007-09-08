@@ -5,7 +5,7 @@ Version:	0.3
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://people.freedesktop.org/~david/dist/%{name}-%{version}.tar.bz2
+Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	4f7a7b23051a59e0c29248605e98d56a
 URL:		http://people.freedesktop.org/~david/polkit-spec.html
 BuildRequires:	PolicyKit-devel >= 0.3
