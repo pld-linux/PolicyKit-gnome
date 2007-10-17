@@ -1,8 +1,12 @@
-Summary:	PolicyKit - GNOME utilities
+#
+# TODO:
+# - update pl summary and description
+#
+Summary:	GNOME dialogs for PolicyKit
 Summary(pl.UTF-8):	PolicyKit - narzędzia dla GNOME
 Name:		PolicyKit-gnome
 Version:	0.6
-Release:	0.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.bz2
@@ -21,10 +25,21 @@ BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-PolicyKit - GNOME utilities.
+PolicyKit-gnome provides a D-BUS session bus service that is used to
+bring up authentication dialogs used for obtaining privileges.
 
 %description -l pl.UTF-8
 PolicyKit - narzędzia dla GNOME.
+
+%package demo
+Summary:	Demo application for PolicyKit-gnome
+Group:		X11/Applications
+Requires:	%{name} = %{version}-%{release}
+
+%description demo
+PolicyKit-gnome-demo provides a sample application that demonstrates
+the features of both PolicyKit and PolicyKit-gnome. You normally don't
+want to have this package installed.
 
 %prep
 %setup -q
@@ -53,8 +68,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS TODO
-%attr(755,root,root) %{_bindir}/polkit-gnome-example
-%attr(755,root,root) %{_libexecdir}/polkit-gnome-manager
-%attr(755,root,root) %{_libexecdir}/polkit-gnome-example-helper
-%{_datadir}/PolicyKit/policy/polkit-gnome-example.policy
+%attr(755,root,root) %{_libdir}/polkit-gnome-manager
 %{_datadir}/dbus-1/services/org.gnome.PolicyKit.service
+
+%files demo
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/polkit-gnome-example
+%attr(755,root,root) %{_libdir}/polkit-gnome-example-helper
+%{_datadir}/PolicyKit/policy/polkit-gnome-example.policy
