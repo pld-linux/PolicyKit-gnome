@@ -1,9 +1,5 @@
-#
-# TODO:
-# - update pl summary and description
-#
 Summary:	GNOME dialogs for PolicyKit
-Summary(pl.UTF-8):	PolicyKit - narzędzia dla GNOME
+Summary(pl.UTF-8):	Okna dialogowe GNOME dla pakietu PolicyKit
 Name:		PolicyKit-gnome
 Version:	0.6
 Release:	1
@@ -29,10 +25,13 @@ PolicyKit-gnome provides a D-BUS session bus service that is used to
 bring up authentication dialogs used for obtaining privileges.
 
 %description -l pl.UTF-8
-PolicyKit - narzędzia dla GNOME.
+Pakiet PolicyKit-gnome udostępnia usługę magistrali sesji D-BUS
+służącą do wyświetlania okien dialogowych uwierzytelniania w celu
+uzyskania uprawnień.
 
 %package demo
 Summary:	Demo application for PolicyKit-gnome
+Summary(pl.UTF-8):	Aplikacja demonstracyjna dla pakietu PolicyKit-gnome
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
@@ -40,6 +39,11 @@ Requires:	%{name} = %{version}-%{release}
 PolicyKit-gnome-demo provides a sample application that demonstrates
 the features of both PolicyKit and PolicyKit-gnome. You normally don't
 want to have this package installed.
+
+%description demo -l pl.UTF-8
+Pakiet PolicyKit-gnome-demo zawiera przykładową aplikację
+demonstrującą możliwości pakietów PolicyKit i PolicyKit-gnome. Zwykle
+ten pakiet nie powinien być instalowany.
 
 %prep
 %setup -q
