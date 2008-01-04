@@ -2,11 +2,12 @@ Summary:	GNOME dialogs for PolicyKit
 Summary(pl.UTF-8):	Okna dialogowe GNOME dla pakietu PolicyKit
 Name:		PolicyKit-gnome
 Version:	0.7
-Release:	0.1
+Release:	1
 License:	LGPL v2+ (polkit-gnome library), GPL v2+ (D-Bus service)
 Group:		X11/Applications
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	978ccbe3c9426f4d59c7903f566f954b
+Patch0:		%{name}-link.patch
 URL:		http://people.freedesktop.org/~david/polkit-spec.html
 BuildRequires:	PolicyKit-devel >= 0.7
 BuildRequires:	autoconf >= 2.50
@@ -49,7 +50,7 @@ Dodatkowa biblioteka PolicyKit dla GNOME.
 %package devel
 Summary:	Header files for polkit-gnome library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki polkit-gnome
-Group:		Development/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	PolicyKit-devel >= 0.7
 Requires:	dbus-devel >= 1.0
@@ -65,7 +66,7 @@ Pliki nagłówkowe biblioteki polkit-gnome.
 %package static
 Summary:	Static polkit-gnome library
 Summary(pl.UTF-8):	Statyczna biblioteka polkit-gnome
-Group:		Development/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
@@ -92,6 +93,7 @@ ten pakiet nie powinien być instalowany.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -100,7 +102,8 @@ ten pakiet nie powinien być instalowany.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
@@ -117,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS TODO
-%attr(755,root,root) %{_libdir}/polkit-gnome-authorization
+%attr(755,root,root) %{_bindir}/polkit-gnome-authorization
 %attr(755,root,root) %{_libdir}/polkit-gnome-manager
 %{_datadir}/dbus-1/services/org.gnome.PolicyKit.service
 %{_datadir}/dbus-1/services/org.gnome.PolicyKit.AuthorizationManager.service
@@ -144,5 +147,4 @@ rm -rf $RPM_BUILD_ROOT
 %files demo
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/polkit-gnome-example
-%attr(755,root,root) %{_libdir}/polkit-gnome-example-helper
 %{_datadir}/PolicyKit/policy/polkit-gnome-example.policy
