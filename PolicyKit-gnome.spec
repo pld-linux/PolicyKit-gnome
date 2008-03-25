@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	examples
+#
 Summary:	GNOME dialogs for PolicyKit
 Summary(pl.UTF-8):	Okna dialogowe GNOME dla pakietu PolicyKit
 Name:		PolicyKit-gnome
@@ -10,6 +14,7 @@ Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-link.patch
 URL:		http://people.freedesktop.org/~david/polkit-spec.html
 BuildRequires:	PolicyKit-devel >= 0.7
+%{?with_examples:BuildRequires:	PolicyKit}
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.71
@@ -103,6 +108,7 @@ ten pakiet nie powinien być instalowany.
 %{__autoheader}
 %{__automake}
 %configure \
+	%{!?with_examples:--disable-examples} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -147,7 +153,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libpolkit-gnome.a
 
+%if %{?with_examples}
 %files demo
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/polkit-gnome-example
 %{_datadir}/PolicyKit/policy/polkit-gnome-example.policy
+%endif
