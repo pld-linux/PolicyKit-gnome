@@ -6,7 +6,7 @@ Summary:	GNOME dialogs for PolicyKit
 Summary(pl.UTF-8):	Okna dialogowe GNOME dla pakietu PolicyKit
 Name:		PolicyKit-gnome
 Version:	0.7
-Release:	1
+Release:	2
 License:	LGPL v2+ (polkit-gnome library), GPL v2+ (D-Bus service)
 Group:		X11/Applications
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.bz2
