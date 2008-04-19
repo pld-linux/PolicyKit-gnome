@@ -5,15 +5,14 @@
 Summary:	GNOME dialogs for PolicyKit
 Summary(pl.UTF-8):	Okna dialogowe GNOME dla pakietu PolicyKit
 Name:		PolicyKit-gnome
-Version:	0.7
-Release:	2
+Version:	0.8
+Release:	1
 License:	LGPL v2+ (polkit-gnome library), GPL v2+ (D-Bus service)
 Group:		X11/Applications
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	978ccbe3c9426f4d59c7903f566f954b
-Patch0:		%{name}-link.patch
+# Source0-md5:	e8119034a8b63c80749177cebf035aac
 URL:		http://people.freedesktop.org/~david/polkit-spec.html
-BuildRequires:	PolicyKit-devel >= 0.7
+BuildRequires:	PolicyKit-devel >= 0.8
 %{?with_examples:BuildRequires:	PolicyKit}
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
@@ -43,7 +42,7 @@ uzyskania uprawnień.
 Summary:	PolicyKit add-on library for GNOME
 Summary(pl.UTF-8):	Dodatkowa biblioteka PolicyKit dla GNOME
 Group:		X11/Libraries
-Requires:	PolicyKit-libs >= 0.7
+Requires:	PolicyKit-libs >= 0.8
 Requires:	gtk+2 >= 2:2.12.0
 
 %description libs
@@ -57,7 +56,7 @@ Summary:	Header files for polkit-gnome library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki polkit-gnome
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	PolicyKit-devel >= 0.7
+Requires:	PolicyKit-devel >= 0.8
 Requires:	dbus-devel >= 1.0
 Requires:	gtk+2-devel >= 2:2.12.0
 Requires:	libselinux-devel >= 1.30
@@ -98,7 +97,6 @@ ten pakiet nie powinien być instalowany.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
