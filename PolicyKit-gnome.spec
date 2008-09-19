@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	examples
+%bcond_without	examples	# don't build example
 #
 Summary:	GNOME dialogs for PolicyKit
 Summary(pl.UTF-8):	Okna dialogowe GNOME dla pakietu PolicyKit
@@ -177,7 +177,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_gtkdocdir}/polkit-gnome
 
-%if %{?with_examples}
+%if %{with examples}
 %files demo
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/polkit-gnome-example
