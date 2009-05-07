@@ -6,11 +6,12 @@ Summary:	GNOME dialogs for PolicyKit
 Summary(pl.UTF-8):	Okna dialogowe GNOME dla pakietu PolicyKit
 Name:		PolicyKit-gnome
 Version:	0.9.2
-Release:	2
+Release:	3
 License:	LGPL v2+ (polkit-gnome library), GPL v2+ (D-Bus service)
 Group:		X11/Applications
 Source0:	http://hal.freedesktop.org/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	fc478b168d0c926a9766b0b415ff4bbf
+Patch0:		%{name}-fix-clickable-buttons.patch
 URL:		http://people.freedesktop.org/~david/polkit-spec.html
 BuildRequires:	GConf2-devel
 BuildRequires:	PolicyKit-devel >= 0.9
@@ -111,6 +112,7 @@ ten pakiet nie powinien być instalowany.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
