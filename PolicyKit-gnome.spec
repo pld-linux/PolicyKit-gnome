@@ -19,6 +19,7 @@ BuildRequires:	PolicyKit-devel >= 0.9
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.0
 BuildRequires:	gnome-doc-utils
