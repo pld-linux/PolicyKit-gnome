@@ -21,7 +21,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.71
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-common >= 2.0
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+2-devel >= 2:2.14.0
